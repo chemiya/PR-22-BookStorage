@@ -108,7 +108,7 @@ Se han realizado bocetos con Figma con la idea básica de como será la aplicaci
 </ul>
 <h2><li>Registro del tiempo</li></h2>
 <p>A continuación se detalla el tiempo utilizado para el proyecto: </p>
-<img src="./diagramas/duracion.jpg">
+<img src="./diagramas/duracion.JPG">
 
 <p><strong>Tiempo empleado: 1105 minutos (18 horas y 25 minutos)</strong></p>
 
