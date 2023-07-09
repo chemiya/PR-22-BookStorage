@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block titulo %} Gestion Libros{% endblock %}
+
+{% block contenido %}
+{% load static %}
+<header>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/gestionLibros1.css' %}">
+    <script src="https://kit.fontawesome.com/f877ada887.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+
+</header>
+
+<div class="exterior">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Gestión de libros</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col d-flex justify-content-center align-items-center">
+                <a class="boton" href="{% url 'crearLibro' %}">Crear libro</a>
+            </div>
+        </div>
+
+        <div class="row  d-flex justify-content-center align-items-center">
+            <div class="col-2 mt-3 d-flex justify-content-center align-items-center">
+                {% if messages %}
+                {% for message in messages %}
+
+                <div class="alert alert-success" role="alert">
+                    <p class="fw-bold text-center">{{message}}</p>
+                </div>
+
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Autor</th>
+                            <th scope="col" class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for libro in libros %}
+                        <tr>
+                            <th>{{libro.id}}</th>
+                            <td>{{libro.titulo}}</td>
+                            <td>{{libro.autor}}</td>
+                            <td>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <a class="btn btn-info me-2" href="editarLibro/{{libro.id}}">Editar</a>
+                                    <a class="btn btn-danger btnEliminacion"
+                                        href="eliminarLibro/{{libro.id}}">Eliminar</a>
+
+                                </div>
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+.exterior{
+    background-color: #FF963E;
+    padding-top: 160px;
+    padding-bottom: 160px;
+
+}
+
+.interior{
+    background-color: #A45411;
+    border-radius:10px;
+    
+}
+*{
+    font-family: 'Stint Ultra Expanded', cursive;
+}
+
+.titulo-interior{
+    color:white;
+}
+
+.interior:hover{
+    
+    background-color: white;
+}
+
+
+.interior:hover >i{
+    color: #A45411;
+}
+
+.interior:hover >h2{
+    color: #A45411;
+}
+
+
+.icono{
+    font-size:70px;
+    color:white;
+}
+
+.fila{
+    margin-top: 100px;
+}
+
+.enlace{
+    text-decoration: none;
+}
+
+.icono-aplicacion{
+    width:200px
+}

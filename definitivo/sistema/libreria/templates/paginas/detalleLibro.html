@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block titulo %} Detalle Libro {% endblock %}
+
+{% block contenido %}
+{% load static %}
+<header>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/detalleLibro4.css' %}">
+    <script src="https://kit.fontawesome.com/f877ada887.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+
+</header>
+
+<div class="exterior">
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a class="boton" href="/buscarLibros">Volver</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-3 ">
+        <div class="row">
+            <div class="col-md-6 col-12 d-flex justify-content-center align-items-center">
+
+                <img src="{{libro.foto.url}}" class="imagen">
+            </div>
+
+            <div class="col-md-6 col-12 d-flex flex-column justify-content-center align-items-center texto">
+                <h2 class="grande">{{libro.titulo}}</h2>
+                <h2 class="grande">{{libro.autor}}</h2>
+                <h2 class="grande">{{libro.editorial}}</h2>
+                <h2 class="grande">{{libro.paginas}} páginas</h2>
+                <h2 class="grande">ISBN:{{libro.isbn}}</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 p-3 d-flex flex-column justify-content-center align-items-center">
+                {%if guardaFavorito %}
+                <a class="boton" href="/eliminarFavorito/{{libro.id}}">Eliminar de favoritos</a>
+                {% else %}
+                <a class="boton" href="/favorito/{{libro.id}}">Añadir a favoritos</a>
+                {% endif %}
+            </div>
+
+            <div class="col-4 p-3 d-flex flex-column justify-content-center align-items-center">
+                <a class="boton" href="/guardarOpinion/?libro={{libro.id}}">Añadir opinión</a>
+            </div>
+
+            <div class="col-4 p-3 d-flex flex-column justify-content-center align-items-center">
+                {%if lecturaUsuario %}
+                <a class="boton" href="/dejarLeer/{{libro.id}}">Dejar de leer</a>
+                {% else %}
+                <a class="boton" href="/leer/{{libro.id}}">Empezar a leer</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row d-flex flex-column justify-content-center align-items-center">
+            <div class="col-3 ">
+                {% if messages %}
+                {% for message in messages %}
+
+                <div class="alert alert-success  d-flex flex-column justify-content-center align-items-center"
+                    role="alert">
+                    <p class="fw-bold text-center">{{message}}</p>
+                    
+                </div>
+
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+
+
+        <div class="row mt-5">
+            <div class="col">
+                <h1 class="text-center">Opiniones de los usuarios</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for opinion in validas %}
+            <div class="col-md-4 col-12 p-3">
+                <div class="interior d-flex justify-content-center align-items-start flex-column p-3">
+                    <h2>{{opinion.usuario}}</h2>
+                    <p>{{opinion.comentario}}</p>
+                    <p ><strong>Puntuación: {{opinion.puntuacion}}</strong></p>
+                </div>
+            </div>
+            {% endfor %}
+
+           
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

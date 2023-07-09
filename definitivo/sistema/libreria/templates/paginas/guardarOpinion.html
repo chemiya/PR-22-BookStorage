@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block titulo %} Guardar opinion {% endblock %}
+
+{% block contenido %}
+{% load static %}
+<header>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/guardarOpinion3.css' %}">
+    <script src="https://kit.fontawesome.com/f877ada887.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+
+</header>
+
+<div class="exterior">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a class="boton" href="/detalleLibro/{{libro.id}}">Volver</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-2">
+        <form method="post" action="/guardarOpinionLibro/">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 col-12 d-flex flex-column justify-content-center align-items-center">
+                    <img class="imagen" src="{{libro.foto.url}}">
+                    <h2>{{libro.titulo}}</h2>
+                    <h2>{{libro.autor}}</h2>
+                </div>
+
+                <div class="col-md-6 col-12 d-flex flex-column justify-content-center align-items-start">
+                    <p>Comentario</p>
+                    <textarea required class="form-control" id="comentario" name="comentario" rows="3"></textarea>
+                    <p>Puntuación</p>
+                    <input required type="number" id="puntuacion" name="puntuacion" class="form-control" min="0" max="10">
+                    <input type="hidden" id="idLibro" name="idLibro" value="{{libro.id}}" class="form-control">
+                    
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col d-flex justify-content-center align-items-center">
+                    <button class="boton">Guardar Opinión</button>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center align-items-center mt-3">
+                <div class="col-3">
+                    {% if messages %}
+                    {% for message in messages %}
+
+                    <div class="alert alert-danger  d-flex flex-column justify-content-center align-items-center"
+                        role="alert">
+                        <p class="fw-bold">{{message}}</p>
+                       
+                    </div>
+
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+
+
+
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block titulo %} Mi usuario {% endblock %}
+
+{% block contenido %}
+{% load static %}
+<header>
+  <link type="text/css" rel="stylesheet" href="{% static 'css/miUsuario1.css' %}">
+  <script src="https://kit.fontawesome.com/f877ada887.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+</header>
+<div class="container">
+
+  <div class="row">
+    <div class="col d-flex justify-content-center align-items-center">
+      <img src="{% static 'img/icono.png' %}" class="icono-aplicacion" />
+    </div>
+  </div>
+
+
+
+
+  <div class="row mt-5">
+    <div class="col ">
+      <h1 class="text-center">Bienvenido a BookStorage, {{username}}</h1>
+    </div>
+  </div>
+
+  <div class="row fila">
+    <div class="col-md-4 col-12 p-2">
+      <a href="{% url 'buscarLibros' %}" class="enlace">
+        <div class="interior d-flex flex-column justify-content-center align-items-center p-3">
+          <i class="fa-solid fa-magnifying-glass icono"></i>
+          <h2 class="titulo-interior">Buscar libros</h2>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-4 col-12 p-2">
+      <a href="{% url 'misLecturas' %}" class="enlace">
+        <div class="interior d-flex flex-column justify-content-center align-items-center p-3">
+          <i class="fa-solid fa-book icono"></i>
+          <h2 class="titulo-interior">Mis lecturas</h2>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="col-md-4 col-12 p-2">
+      <a href="{% url 'misFavoritos' %}" class="enlace">
+        <div class="interior d-flex flex-column justify-content-center align-items-center p-3">
+          <i class="fa-solid fa-star icono"></i>
+          <h2 class="titulo-interior">Mis favoritos</h2>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

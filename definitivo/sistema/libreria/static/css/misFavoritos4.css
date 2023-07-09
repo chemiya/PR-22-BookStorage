@@ -1,0 +1,60 @@
+.interior-libro{
+    border-radius: 10px;
+    background-color: #A45411;
+    padding:10px;
+    color:white;
+
+}
+
+.exterior{
+    background-color: #FF963E;
+    padding-top: 10px;
+    padding-bottom: 100px;
+   
+
+}
+*{
+    font-family: 'Stint Ultra Expanded', cursive;
+}
+.boton{
+    color:white;
+    background-color: #A45411;
+    padding:30px;
+    font-size:40px;
+    border-radius: 10px;
+    border:none;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.boton-normal{
+    color:white;
+    background-color: #A45411;
+    padding:10px;
+    font-size:20px;
+    border-radius: 10px;
+    border:none;
+    font-weight:bold;
+    text-decoration:none;
+}
+.boton-normal:hover{
+    color:#A45411;
+    background-color: white;
+}
+.vacio{
+    padding-bottom: 270px;
+}
+.imagen{
+    width:200px;
+    height:200px;
+    object-fit: cover;
+}
+
+.eliminar{
+    background-color: red;
+    border-radius:10px;
+    color:white;
+    font-weight: bold;
+    border:none;
+    padding:10px;
+}

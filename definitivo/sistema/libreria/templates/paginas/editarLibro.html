@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block titulo %} Editar libro {% endblock %}
+
+{% block contenido %}
+{% load static %}
+<header>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/editarLibro.css' %}">
+    <script src="https://kit.fontawesome.com/f877ada887.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+
+</header>
+
+<div class="exterior">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Editar libro</h1>
+            </div>
+        </div>
+
+        <form method="POST" action="/editarLibroAccion/" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row mt-2">
+                <div class="col d-flex flex-column justify-content-center align-items-start">
+                    <p>Título</p>
+                    <input type="text" required id="titulo" value="{{libro.titulo}}" name="titulo" class="form-control">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col d-flex flex-column justify-content-center align-items-start">
+                    <p>Editorial</p>
+                    <input type="text" required id="editorial" value="{{libro.editorial}}" name="editorial"
+                        class="form-control">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col d-flex flex-column justify-content-center align-items-start">
+                    <p>Autor</p>
+                    <input type="text" required id="autor" value="{{libro.autor}}" name="autor" class="form-control">
+                </div>
+            </div>
+
+            <div class="row mt-2 d-flex justify-content-center align-items-start">
+                <div class="col-4 d-flex flex-column justify-content-center align-items-start">
+                    <p>Foto</p>
+                    <input type="file" id="foto" name="foto" class="form-control">
+                    <p class="mt-3">Foto Actual</p>
+                    <img src="{{MEDIA_URL}}/imagenes/{{libro.foto}}" width="100" />
+                </div>
+
+                <div class="col-4 d-flex flex-column justify-content-center align-items-start">
+                    <p>ISBN</p>
+                    <input type="text" required id="isbn" value="{{libro.isbn}}" name="isbn" class="form-control">
+                </div>
+
+                <div class="col-4 d-flex flex-column justify-content-center align-items-start">
+                    <p>Páginas</p>
+                    <input type="text" required id="paginas" value="{{libro.paginas}}" name="paginas"
+                        class="form-control">
+                    <input type="hidden" value="{{libro.id}}" name="id" />
+                </div>
+            </div>
+
+            <div class="row pt-5 pb-5">
+                <div class="col d-flex justify-content-center align-items-center">
+                    <button class="boton">Editar</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block titulo %} Identificacion {% endblock %}
+
+{% block contenido %}
+{% load static %}
+<header>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/identificacionUsuario2.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+
+</header>
+<div class="exterior">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="formulario p-3">
+            <div class="row ">
+                <div class="col ">
+                    <h1 class="text-center">Identifícate para acceder a tus libros</h1>
+                </div>
+            </div>
+            <div class="row d-flex  justify-content-center align-items-center">
+                <div class="col-md-6 col-10 ">
+                    <form method="post" action="/identificarUsuario/">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col d-flex flex-column justify-content-center align-items-start">
+                                <p>Username</p>
+                                <input type="text" id="username" name="username" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col d-flex flex-column justify-content-center align-items-start">
+                                <p>Contraseña</p>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                            </div>
+                        </div>
+
+
+                        <div class="row pt-5 pb-5">
+                            <div class="col d-flex justify-content-center align-items-center">
+                                <button class="boton">Identificarse</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert alert-danger" role="alert">
+                                    <p class="fw-bold text-center"> {{message}} </p>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

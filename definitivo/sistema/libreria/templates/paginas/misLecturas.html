@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block titulo %} Mis lecturas {% endblock %}
+
+{% block contenido %}
+{% load static %}
+<header>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/misLecturasVista2.css' %}">
+    <script src="https://kit.fontawesome.com/f877ada887.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+
+</header>
+
+<div class="exterior">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a class="boton" href="/miUsuario">Volver</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Mis lecturas</h1>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center align-items-center mt-2">
+            <div class="col-3">
+                {% if messages %}
+                {% for message in messages %}
+
+                <div class="alert alert-success  d-flex flex-column justify-content-center align-items-center"
+                    role="alert">
+                    <p class="fw-bold text-center">{{message}}</p>
+
+                </div>
+
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+
+        {% if vacio %}
+        <div class="row vacio">
+            <div class="col">
+                <h2 class="text-center">No estás leyendo ningún libro</h2>
+            </div>
+        </div>
+        {% else %}
+        <div class="row mt-2">
+            {% for lectura in misLecturas %}
+            <div class="col-md-4 col-12 p-3">
+                <div class="interior-lectura d-flex justify-content-center align-items-center flex-column">
+                    <h2 class="text-center">{{lectura.titulo}}</h2>
+                    <h2 class="text-center">Página {{lectura.paginaActual}}</h2>
+                    <h2 class="text-center">{{lectura.estado}}</h2>
+                    <a class="btn btn-info mt-2" href="editarLectura/{{lectura.id}}">Editar</a>
+                    <a class="btn btn-danger mt-2" href="/dejarLeerMisLecturas/{{lectura.idLibro}}">Dejar de leer</a>
+                </div>
+            </div>
+
+            {% endfor %}
+
+
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

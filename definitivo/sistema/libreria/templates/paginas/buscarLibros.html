@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block titulo %} Buscar libros {% endblock %}
+
+{% block contenido %}
+{% load static %}
+<header>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/buscarLibrosVista5.css' %}">
+    <script src="https://kit.fontawesome.com/f877ada887.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+
+</header>
+
+
+
+
+
+
+
+
+
+
+<div class="exterior">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a class="boton" href="/miUsuario">Volver</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Buscador de libros</h1>
+                
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-12">
+                <form class="d-flex justify-content-center align-items-center" method="post"
+                    action="/buscarLibrosTitulo/">
+                    {% csrf_token %}
+                    <input required type="text" id="titulo" placeholder="Título del libro" name="titulo" class="form-control">
+                    <button class="boton ms-2">Buscar</button>
+                </form>
+
+            </div>
+        </div>
+
+        {% if ninguno %}
+            <div class="row ninguno">
+                <div class="col">
+                    <h3 class="text-center">No se ha encontrado ningún libro con ese título</h3>
+                </div>
+            </div>
+        {% else %}
+        <div class="row">
+            {% for libro in libros %}
+            <div class="col-md-4 col-12 p-3 ">
+                <a href="detalleLibro/{{libro.id}}" class="link">
+
+                    <div class="interior-libro h-100 d-flex justify-content-start align-items-center flex-column">
+                        <img class="imagen" src="{{libro.foto.url}}">
+                        <h2 class="text-center">{{libro.titulo}}</h2>
+                        <h2 class="text-center">{{libro.autor}}</h2>
+                    </div>
+
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

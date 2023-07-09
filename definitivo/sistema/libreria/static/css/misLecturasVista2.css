@@ -1,0 +1,37 @@
+.exterior{
+    background-color: #FF963E;
+   padding-top: 20px;
+   padding-bottom: 140px;
+   
+
+}
+
+.interior-lectura{
+    border-radius: 10px;
+    background-color: #A45411;
+    padding:10px;
+    color:white;
+
+}
+.boton:hover{
+    color:#A45411;
+    background-color: white;
+}
+
+.vacio{
+    padding-bottom: 170px;
+}
+.boton{
+    color:white;
+    background-color: #A45411;
+    padding:10px;
+    font-size:20px;
+    border-radius: 10px;
+    border:none;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+*{
+    font-family: 'Stint Ultra Expanded', cursive;
+}

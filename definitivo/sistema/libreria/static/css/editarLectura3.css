@@ -1,0 +1,29 @@
+.exterior{
+    background-color: #FF963E;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+}
+
+.imagen{
+    width:300px;
+    height:300px;
+    object-fit: cover;
+}
+*{
+    font-family: 'Stint Ultra Expanded', cursive;
+}
+.boton:hover{
+    color:#A45411;
+    background-color: white;
+}
+
+.boton{
+    color:white;
+    background-color: #A45411;
+    padding:10px;
+    font-size:20px;
+    border-radius: 10px;
+    border:none;
+    font-weight:bold;
+}

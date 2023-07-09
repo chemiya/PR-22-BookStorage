@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block titulo %} Pantalla principal {% endblock %}
+
+{% block contenido %}
+{% load static %}
+<header>
+  <link type="text/css" rel="stylesheet" href="{% static 'css/principal.css' %}">
+  <script src="https://kit.fontawesome.com/f877ada887.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+</header>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 col-12 p-5 d-flex justify-content-center align-items-center">
+      <img src="{% static 'img/icono.png' %}" class="icono-aplicacion" />
+
+
+
+    </div>
+    <div class="col-md-6 col-12 p-5 d-flex jus">
+      <h1 class="texto-grande">Tu biblioteca online</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-12 d-flex justify-content-center align-items-center mt-2">
+      <a class="boton" href="{% url 'identificacion' %}">
+        Identificación
+      </a>
+    </div>
+    <div class="col-md-6 col-12 d-flex justify-content-center align-items-center mt-2">
+      <a class="boton" href="{% url 'registro' %}">
+        Registro
+      </a>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="container caracteristicas">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center">La mejor aplicación para gestionar tus libros</h1>
+    </div>
+  </div>
+
+
+
+  <div class="row ">
+    <div class="col p-3">
+      <div class="interior-carta-fila">
+        <div class="row ">
+          <div class="col-md-3 col-12  d-flex justify-content-center align-items-center mt-2">
+            <div class="contenido-icono  ">
+              <i class="fa-solid fa-book icono"></i>
+            </div>
+          </div>
+          <div class="col-md-9 col-12 mt-2">
+            <div class="contenido d-flex flex-column justify-content-center align-items-start">
+              <h1 class="centrar">Guarda los libros que lees</h1>
+              <h3 class="centrar">Guarda los libros que lees para que sepas
+                cuanto te queda</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+
+  <div class="row ">
+    <div class="col p-3">
+      <div class="interior-carta-fila">
+        <div class="row ">
+          <div class="col-md-3 col-12   d-flex justify-content-center align-items-center mt-2">
+            <div class="contenido-icono  ">
+              <i class="fa-solid fa-gavel icono"></i>
+            </div>
+          </div>
+          <div class="col-md-9 col-12 mt-2">
+            <div class="contenido d-flex flex-column justify-content-center align-items-start">
+              <h1 class="centrar">Guarda tus opiniones de libros</h1>
+              <h3 class="centrar">Guarda tus opiniones sobre los libros que lees para que otros usuarios las vean</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row ">
+    <div class="col p-3">
+      <div class="interior-carta-fila">
+        <div class="row ">
+          <div class="col-md-3 col-12   d-flex justify-content-center align-items-center mt-2">
+            <div class="contenido-icono  ">
+              <i class="fa-solid fa-heart icono"></i>
+            </div>
+          </div>
+          <div class="col-md-9 col-12 mt-2">
+            <div class="contenido d-flex flex-column justify-content-center align-items-start">
+              <h1 class="centrar">Guarda tus libros favoritos</h1>
+              <h3 class="centrar">Guarda los libros que te gusten para leer en el futuro</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+<div class="container usuarios">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center">Miles de usuarios ya nos utilizan</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-12 p-3">
+      <div class="interior-carta-usuario d-flex justify-content-center align-items-center flex-column p-3">
+        <img src="{% static 'img/fotoperfil.png' %}" class="foto-perfil" />
+        <h2>Javier</h2>
+        <h2>34 años, España</h2>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-12 p-3">
+      <div class="interior-carta-usuario d-flex justify-content-center align-items-center flex-column p-3">
+        <img src="{% static 'img/fotoperfil1.jpg' %}" class="foto-perfil" />
+        <h2>Ana</h2>
+        <h2>67 años, UK</h2>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-12 p-3">
+      <div class="interior-carta-usuario d-flex justify-content-center align-items-center flex-column p-3">
+        <img src="{% static 'img/fotoperfil2.jpg' %}" class="foto-perfil" />
+        <h2>Esteban</h2>
+        <h2>56 años, Francia</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="footer mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col d-flex flex-column justify-content-center align-items-center">
+        <h1 class="text-center">José María Lozano Olmedo</h1>
+        <h1 class="text-center">All Rights Reserved &copy;</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
