@@ -1,4 +1,4 @@
-<h1>Documento resumen del proyecto para crear la aplicación "BookStore"</h1>
+<h1>Documento resumen del proyecto para crear la aplicación "BookStorage"</h1>
 
 <ol>
 <h2><li>Resumen del proyecto</li></h2>
